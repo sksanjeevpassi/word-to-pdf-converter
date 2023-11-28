@@ -28,7 +28,7 @@ In the config/app.php file, add the following lines to register the service prov
     'PDF' => Barryvdh\DomPDF\Facade::class,
 ],
 ```
-3. Register Route
+# 3. Register Route
 In the routes/api.php file, register the conversion route:
 
 ```bash
@@ -37,11 +37,12 @@ use App\Http\Controllers\ConverterController;
 Route::post('/convert-to-pdf', [ConverterController::class, 'convertToPdf']);
 ```
 
-4. Create Controller
+# 4. Create Controller
 Generate a controller named ConverterController by running the following command:
 ```bash
 php artisan make:controller ConverterController
 ```
+# 5. Copy code and past on your controller
 ```bash
 <?php
 
@@ -94,4 +95,8 @@ class ConverterController extends Controller
         }
     }
 }
+```
+# 6 curl request copy and test using postman
+```bash
+curl -X POST -F "document=@/path/to/your/document.docx" http://localhost:8000/convert-to-pdf
 ```
